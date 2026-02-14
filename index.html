@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Para Ti 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Pacifico&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle at top, #1b2735, #020111);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.6em;
+    margin-top: 60px;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff9edb; }
+    to { text-shadow: 0 0 25px #ff5ec4; }
+}
+
+p {
+    opacity: 0.85;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 25px;
+    border-radius: 18px;
+    width: 85%;
+    max-width: 340px;
+    margin: 40px auto;
+    box-shadow: 0 0 30px rgba(255, 94, 196, 0.35);
+}
+
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+button {
+    margin-top: 20px;
+    background: linear-gradient(45deg, #ff5ec4, #9b5cff);
+    border: none;
+    padding: 12px 20px;
+    color: white;
+    font-size: 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#mensaje {
+    display: none;
+    margin-top: 15px;
+    font-size: 0.95em;
+    color: #ffd6ef;
+}
+
+/* estrellas */
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2.5s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%,100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Te Amo Muchote 💖</h1>
+<p>Mis ojitos brillantes ✨</p>
+
+<div class="card">
+    <p><strong>Base:</strong> tlanex</p>
+    <p><strong>Adaptación:</strong> Jotab</p>
+
+    <p>🎶 Elige tu canción</p>
+    <audio controls>
+        <source src="cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <button onclick="mostrarMensaje()">💌 Toca aquí</button>
+    <div id="mensaje">
+        No importa la distancia,<br>
+        ni el tiempo,<br>
+        ni el caos del mundo…<br><br>
+        <strong>te elijo a ti 🌙</strong>
+    </div>
+</div>
+
+<script>
+function mostrarMensaje() {
+    const m = document.getElementById("mensaje");
+    m.style.display = m.style.display === "block" ? "none" : "block";
+}
+
+// estrellas
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 2 + 1;
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    document.body.appendChild(star);
+}
+</script>
+
+</body>
+</html>
